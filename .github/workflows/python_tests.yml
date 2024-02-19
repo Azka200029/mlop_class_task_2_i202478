@@ -1,1 +1,29 @@
+name: Python Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if your main branch has a different name
+
+jobs:
+  test:
+    name: Run Python Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Specify the Python version you want to use, e.g., 3.8, 3.9
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Tests
+      run: |
+        pytest test.py
 
