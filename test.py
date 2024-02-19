@@ -35,7 +35,15 @@ def test_getClassName():
 # Run the tests
 if __name__ == "__main__":
     test_enrollStudents()
+    print("test_enrollStudents: Passed successfully!")
+    
     test_dropStudents()
+    print("test_dropStudents: Passed successfully!")
+    
     test_getTotalStrength()
+    print("test_getTotalStrength: Passed successfully!")
+    
     test_getClassName()
+    print("test_getClassName: Passed successfully!")
+    
     print("All tests passed successfully!")
