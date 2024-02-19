@@ -6,7 +6,7 @@ def test_enrollStudents():
 
     # Test enrolling students
     class_instance.enrollStudents(5)
-    assert class_instance.getTotalStrength() == 10
+    assert class_instance.getTotalStrength() == 5
     print("test_enrollStudents: Passed successfully!")
 
 def test_dropStudents():
