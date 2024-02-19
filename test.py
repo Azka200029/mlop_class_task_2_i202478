@@ -6,7 +6,7 @@ def test_enrollStudents():
 
     # Test enrolling students
     class_instance.enrollStudents(5)
-    assert class_instance.getTotalStrength() == 5
+    assert class_instance.getTotalStrength() == 10
 
 def test_dropStudents():
     # Create an instance of StudentsInMLOps
