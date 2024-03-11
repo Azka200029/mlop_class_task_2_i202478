@@ -1,26 +1,36 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                sh 'pip install -r requirements.txt'
+                git branch: 'main', url: 'https://github.com/revolutionaryanusha/Mlops_task2.git'
             }
         }
-        stage('Test') {
+
+        stage('Set up Python') {
             steps {
-                sh 'pytest'
+                // Download Python installer
+                bat 'curl -o python-installer.exe https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe'
+                // Install Python
+                bat 'python-installer.exe /quiet InstallAllUsers=1 PrependPath=1'
+                // Remove Python installer
+                bat 'del python-installer.exe'
             }
         }
-        stage('Deploy') {
-            when {
-                expression { return env.BRANCH_NAME == 'main' }
-            }
+        
+        stage('Install dependencies') {
             steps {
-                script {
-                    echo 'Deploying to production...'
-                    // Your deployment steps here
-                }
+                // Install Python dependencies
+                bat 'pip install -r requirements.txt'
+                bat 'pip install pytest'
+            }
+        }
+        
+        stage('Run tests') {
+            steps {
+                // Run tests using full path to pytest executable
+                bat 'python3 test.py'
             }
         }
     }
