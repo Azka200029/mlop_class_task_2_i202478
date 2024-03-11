@@ -22,8 +22,8 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 // Install Python dependencies
-                bat 'pip3 install -r requirements.txt'
-                bat 'pip3 install pytest'
+                bat 'pip install -r requirements.txt'
+                bat 'pip install pytest'
             }
         }
         
