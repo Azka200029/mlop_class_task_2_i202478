@@ -11,7 +11,7 @@ pipeline {
         stage('Set up Python') {
             steps {
                 // Download Python installer
-                bat 'curl -o python-installer.exe https://www.python.org/ftp/python/3.9.5/python-3.9.5-amd64.exe'
+                bat 'curl -o python-installer.exe https://www.python.org/ftp/python/3.9.5/python-3.12.2-amd64.exe'
                 // Install Python
                 bat 'python-installer.exe /quiet InstallAllUsers=1 PrependPath=1'
                 // Remove Python installer
