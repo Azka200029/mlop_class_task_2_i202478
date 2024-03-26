@@ -18,19 +18,20 @@ pipeline {
                 bat 'del python-installer.exe'
             }
         }
-        
+       
         stage('Install dependencies') {
             steps {
-                // Install Python dependencies
+               
                 bat 'pip install -r requirements.txt'
                 bat 'pip install pytest'
             }
         }
-        
+       
+   
         stage('Run tests') {
             steps {
                 // Run tests using full path to pytest executable
-                bat 'python3 test.py'
+                bat 'python test.py'
             }
         }
     }
